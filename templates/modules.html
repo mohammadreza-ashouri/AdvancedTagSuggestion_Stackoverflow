@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% set active_page = "modules" %}
+{% block content %}
+    <main role="main" class="container">
+        <ul class="list-group">
+            {% for module in modules %}
+                <li class="list-group-item">{{ module.name }}
+                    <div class="float-right">
+                        <a onclick="$('#deleteModule form').attr('action', '{{ url_for('module_remove', mid=module._id) }}'); $('#deleteModule').modal('show')" class="btn btn-danger btn-sm">Remove</a>
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+    </main><!-- /.container -->
+{% endblock %}

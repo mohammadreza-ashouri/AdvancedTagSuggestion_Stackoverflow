@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% set active_page = "add_module" %}
+{% block content %}
+    <main role="main" class="container">
+        {% if status == "new" %}
+        <div class="alert alert-primary" role="alert">
+          New Module added successfully
+        </div>
+        {% elif status =="update" %}
+        <div class="alert alert-warning" role="alert">
+          This module is already exist
+        </div>
+        {% endif %}
+        <form method="post" action="{{ url_for('modules_add') }}">
+            <div class="form-group">
+                <label for="module_name">Module Name</label>
+                <input type="text" class="form-control" name="module_name" id="module_name"
+                       placeholder="module name">
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </main><!-- /.container -->
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% set active_page = "update_data" %}
+{% block content %}
+    <main role="main" class="container">
+        {% if status == "new" %}
+        <div class="alert alert-primary" role="alert">
+          import data started successfully
+        </div>
+        {% endif %}
+        {% if status == "wrong_password" %}
+        <div class="alert alert-danger" role="alert">
+          password is incorrect
+        </div>
+        {% endif %}
+        <form method="post" action="{{ url_for('start_import') }}">
+            <div class="form-group">
+                <label for="password">password</label>
+                <input type="password" class="form-control" name="password" id="password"
+                       placeholder="">
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </main><!-- /.container -->
+{% endblock %}

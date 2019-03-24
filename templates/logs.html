@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% set active_page = "logs" %}
+{% block content %}
+    <main role="main" class="container">
+        <ul class="list-group">
+            {% for log_item in logs %}
+                <li class="list-group-item">
+                    <a href="{{ url_for("view_log", lid=log_item._id) }}">{{ log_item.start_date }}</a>
+                </li>
+            {% endfor %}
+        </ul>
+    </main><!-- /.container -->
+{% endblock %}

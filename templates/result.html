@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% set active_page = "index" %}
+{% block content %}
+    <main role="main" class="container">
+        <h3>Question</h3>
+        <div>
+            <p>{{ q }}</p>
+        </div>
+        <div>question keyword:
+            {% for k in q_w %}
+            <span class="badge badge-info" style="margin: 5px;">{{ k }}</span>
+            {% endfor %}
+        </div>
+        <div>code keyword:
+            {% for k in keywords %}
+            <span class="badge badge-info" style="margin: 5px;">{{ k }}</span>
+            {% endfor %}
+        </div>
+        <hr>
+        <h3>result</h3>
+        <div>
+            {% for q in answers %}
+                <p><a href="{{ url_for("show_message", hash_id=q._id) }}">({{ q.sizeMatch }})-{{ q.title }}</a></p>
+            {% endfor %}
+        </div>
+
+    </main>
+{% endblock %}

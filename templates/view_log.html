@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% set active_page = "logs" %}
+{% block content %}
+    <main role="main" class="container">
+        <h3>{{ log_item.start_date }}</h3>
+        {% for log_data in log_item.data %}
+            <p>
+                <h5>({{ log_data.date }})</h5>
+                {{ log_data.text }}
+            </p>
+        {% endfor %}
+    </main>
+{% endblock %}
